@@ -1,0 +1,17 @@
+- unless current_user.companies.blank?
+  %table.highlight.bordered
+    %thead
+      %tr
+        %th Name
+        %th Website
+        %th Phone
+        %th Location
+    %tbody
+      - current_user.companies.each do |company|
+        %tr{"data-link": (url_for [company])}
+          %td= link_to company.name, company
+          %td= company.website
+          %td= company.phone
+          %td= "#{company.city} #{company.street} #{company.state} #{company.country} #{company.zip}"
+- else
+  = link_to "Add a company", new_company_path, class: "btn z-depth-0"

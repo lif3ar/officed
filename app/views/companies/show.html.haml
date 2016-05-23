@@ -1,0 +1,12 @@
+%h5= @company.name
+%p= @company.website
+%p= @company.description
+%p= @company.phone
+%p= @company.street
+%p= @company.city
+%p= @company.state
+%p= @company.country
+%p= @company.zip
+
+= link_to "Edit", edit_company_path, class: "btn"
+= link_to "Delete", company_path, method: :delete
