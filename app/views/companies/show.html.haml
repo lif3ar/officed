@@ -1,13 +1,17 @@
+= image_tag(@company.company_logo(:small))
 %h5= @company.name
 %p= @company.website
 %p= @company.description
 %p= @company.phone
-%p= @company.all_company_tags
+%p
+  - @company.company_tags.each do |tag|
+    .chip= tag.name
 %p= @company.street
 %p= @company.city
 %p= @company.state
 %p= @company.country
 %p= @company.zip
 
-= link_to "Edit", edit_company_path, class: "btn"
-= link_to "Delete", company_path, method: :delete
+= link_to "Edit", edit_company_path, class: "btn z-depth-0"
+= link_to "Delete", company_path, method: :delete,
+class: "btn z-depth-0 grey darken-3"

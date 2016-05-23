@@ -11,6 +11,8 @@ gem 'simple_form'
 gem 'haml', '~> 4.0.5'
 gem 'jbuilder', '~> 2.0'
 gem 'materialize-sass'
+gem 'paperclip', '~> 4.3', '>= 4.3.5'
+gem 'paperclip-storage-ftp'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

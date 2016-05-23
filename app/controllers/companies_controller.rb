@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-
+  require "paperclip/storage/ftp"
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -51,7 +51,7 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :website, :phone, :description,
                                     :street, :city, :state, :country, :zip,
-                                    :all_company_tags)
+                                    :all_company_tags, :company_logo)
   end
 
 end
