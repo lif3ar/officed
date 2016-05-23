@@ -12,6 +12,11 @@
 %p= @company.country
 %p= @company.zip
 
+%h5 Comments
+- @company.company_comments.each do |comment|
+  %p= comment.content
+= render 'company_comments/comment'
+
 = link_to "Edit", edit_company_path, class: "btn z-depth-0"
 = link_to "Delete", company_path, method: :delete,
 class: "btn z-depth-0 grey darken-3"

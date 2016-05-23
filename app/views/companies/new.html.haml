@@ -5,7 +5,7 @@
     <br/>
     = f.text_field :website, class: "input-field col s12", placeholder: "Website"
     <br/>
-    = f.text_field :description, class: "materialize-textarea", placeholder: "Description"
+    = f.text_area :description, class: "materialize-textarea", placeholder: "Description"
     <br/>
     = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
     <br/>
@@ -23,6 +23,5 @@
     = f.text_field :country, class: "input-field col s12", placeholder: "County"
     <br/>
     = f.text_field :zip, class: "input-field col s12", placeholder: "Zip Code"
-    <br/>
     = f.submit "Save", class: "btn z-depth-0"
     = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"

@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   belongs_to :user
   has_many :company_taggings, dependent: :destroy
   has_many :company_tags, through: :company_taggings
+  has_many :company_comments, dependent: :destroy
 
   has_attached_file :company_logo, styles: { small: "80x80>" },
   :storage => :ftp,

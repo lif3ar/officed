@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
+    @companies = current_user.companies.all
   end
 
   def new
@@ -21,6 +21,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @company_comments = CompanyComment.where(company_id: @company)
   end
 
   def edit
