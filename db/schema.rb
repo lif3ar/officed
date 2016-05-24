@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524063124) do
+ActiveRecord::Schema.define(version: 20160524192541) do
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
@@ -72,9 +72,13 @@ ActiveRecord::Schema.define(version: 20160524063124) do
     t.string   "state"
     t.string   "country"
     t.string   "zip"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.string   "contact_avatar_file_name"
+    t.string   "contact_avatar_content_type"
+    t.integer  "contact_avatar_file_size"
+    t.datetime "contact_avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

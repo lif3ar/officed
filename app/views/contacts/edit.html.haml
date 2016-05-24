@@ -1,0 +1,20 @@
+.row
+  = simple_form_for(@contact, html: {class: "form col s6", role: "form",
+  multipart: true}) do |f|
+    = f.file_field :contact_avatar
+    = f.text_field :name, placeholder: "Name"
+    = f.text_field :title, placeholder: "Title"
+    = f.text_field :company, placeholder: "Company"
+    = f.text_area :description, placeholder: "Description",
+    class: "materialize-textarea"
+    = f.text_field :email, placeholder: "Email"
+    = f.text_field :work, placeholder: "Work"
+    = f.text_field :mobile, placeholder: "Mobile"
+    = f.text_field :home, placeholder: "Home"
+    = f.text_field :street, placeholder: "Street"
+    = f.text_field :city, placeholder: "City"
+    = f.text_field :state, placeholder: "State"
+    = f.text_field :country, placeholder: "Country"
+    = f.text_field :zip, placeholder: "Zip code"
+    = f.submit class: "btn z-depth-0"
+    = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"

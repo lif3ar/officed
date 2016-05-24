@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   def create
     @company = current_user.companies.create(company_params)
     if @company.save
-      redirect_to company_path(@company)
+      redirect_to @company
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
   def update
     @company.update(company_params)
     if @company.save
-      redirect_to company_path(@company)
+      redirect_to @company
     else
       flash[:alert] = "Company information has not been updated"
       render 'Edit'

@@ -1,0 +1,18 @@
+= image_tag(@contact.contact_avatar(:small))
+= @contact.name
+= @contact.title
+= @contact.company
+= @contact.description
+= @contact.email
+= @contact.work
+= @contact.mobile
+= @contact.home
+= @contact.street
+= @contact.city
+= @contact.state
+= @contact.country
+= @contact.zip
+
+= link_to "Edit", edit_contact_path, class: "btn z-depth-0"
+= link_to "Delete", contact_path, method: :delete,
+class: "btn z-depth-0 grey darken-3"

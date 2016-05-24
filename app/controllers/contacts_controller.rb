@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @contact = Contact.update(contact_params)
+    @contact.update(contact_params)
     if @contact.save
       redirect_to @contact
     else
@@ -49,7 +49,8 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:name, :title, :company, :description,
                                     :email, :work, :mobile, :home, :street,
-                                    :city, :state, :country, :zip)
+                                    :city, :state, :country, :zip,
+                                    :contact_avatar)
   end
 
 end
