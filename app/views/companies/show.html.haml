@@ -1,4 +1,7 @@
-= image_tag(@company.company_logo(:small))
+- if @company.company_logo?
+  = image_tag(@company.company_logo(:small))
+-else
+  = link_to image_tag('unknown_company.jpg', size: '65'), edit_company_path
 %h5= @company.name
 %p= @company.website
 %p= @company.description

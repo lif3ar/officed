@@ -1,27 +1,26 @@
-.row
-  = simple_form_for(@company, html: {class: "form col s6", role: "form", multipart: true}) do |f|
-    %h5 Add company
-    = f.text_field :name, class: "input-field col s12", placeholder: "Company name"
-    <br/>
-    = f.text_field :website, class: "input-field col s12", placeholder: "Website"
-    <br/>
-    = f.text_area :description, class: "materialize-textarea", placeholder: "Description"
-    <br/>
-    = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
-    <br/>
-    = f.text_field :all_company_tags, class: "input_field col s12",
-    placeholder: "Tags. Separate with commas."
-    <br/>
-    = f.file_field :company_logo
-    %h5 Address
-    = f.text_field :street, class: "input-field col s12", placeholder: "Street"
-    <br/>
-    = f.text_field :city, class: "input-field col s12", placeholder: "City"
-    <br/>
-    = f.text_field :state, class: "input-field col s12", placeholder: "State"
-    <br/>
-    = f.text_field :country, class: "input-field col s12", placeholder: "County"
-    <br/>
-    = f.text_field :zip, class: "input-field col s12", placeholder: "Zip Code"
-    = f.submit "Save", class: "btn z-depth-0"
-    = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"
+= simple_form_for(@company, html: {class: "form col s6", role: "form", multipart: true}) do |f|
+  %h5 Add company
+  = f.text_field :name, class: "input-field col s12", placeholder: "Company name"
+  <br/>
+  = f.text_field :website, class: "input-field col s12", placeholder: "Website"
+  <br/>
+  = f.text_area :description, class: "materialize-textarea", placeholder: "Description"
+  <br/>
+  = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
+  <br/>
+  = f.text_field :all_company_tags, class: "input_field col s12",
+  placeholder: "Tags. Separate with commas."
+  <br/>
+  = f.file_field :company_logo
+  %h5 Address
+  = f.text_field :street, class: "input-field col s12", placeholder: "Street"
+  <br/>
+  = f.text_field :city, class: "input-field col s12", placeholder: "City"
+  <br/>
+  = f.text_field :state, class: "input-field col s12", placeholder: "State"
+  <br/>
+  = f.text_field :country, class: "input-field col s12", placeholder: "County"
+  <br/>
+  = f.text_field :zip, class: "input-field col s12", placeholder: "Zip Code"
+  = f.submit "Save", class: "btn z-depth-0"
+  = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"

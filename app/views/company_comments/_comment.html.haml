@@ -1,3 +1,6 @@
-= simple_form_for([@company, @company.company_comments.build]) do |f|
-  = f.text_area :content
-  = f.submit
+.row.col.s12
+  = simple_form_for([@company, @company.company_comments.build],
+  html: {role: "form", class: "form col s6"}) do |f|
+    = f.text_area :content, class: "materialize-textarea",
+    placeholder: "Add your comments about the company."
+    = f.submit "Submit", class: "btn z-depth-0"

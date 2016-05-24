@@ -1,6 +1,6 @@
 .row
   = simple_form_for(@company, html: {class: "form col s6", role: "form", multipart: true}) do |f|
-    %h5 Add company
+    %h5 Update Company
     = f.text_field :name, class: "input-field col s12", placeholder: "Company name"
     <br/>
     = f.text_field :website, class: "input-field col s12", placeholder: "Website"
@@ -12,8 +12,8 @@
     = f.text_field :all_company_tags, class: "input_field col s12",
     placeholder: "Tags. Separate with commas."
     <br/>
-    = f.file_field :company_logo
-    %h5 Address
+    = f.input_field :company_logo, class: "btn file-field input-field"
+    %h6 Address
     = f.text_field :street, class: "input-field col s12", placeholder: "Street"
     <br/>
     = f.text_field :city, class: "input-field col s12", placeholder: "City"
