@@ -11,8 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
-    @contact.user_id = current_user.id
+    @contact = current_user.contacts.create(contact_params)
     if @contact.save
       redirect_to contact_path(@contact)
     else
@@ -29,8 +28,10 @@ class ContactsController < ApplicationController
   def update
     @contact.update(contact_params)
     if @contact.save
+      flash[:success] = "Information has been updated"
       redirect_to @contact
     else
+      flash[:alert] = "User information has not been updated"
       render 'edit'
     end
   end
@@ -50,7 +51,7 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :title, :company, :description,
                                     :email, :work, :mobile, :home, :street,
                                     :city, :state, :country, :zip,
-                                    :contact_avatar)
+                                    :contact_avatar, :all_company_tags)
   end
 
 end

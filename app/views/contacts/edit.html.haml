@@ -2,6 +2,8 @@
   = simple_form_for(@contact, html: {class: "form col s6", role: "form",
   multipart: true}) do |f|
     = f.file_field :contact_avatar
+    = f.text_field :all_company_tags, class: "input_field col s12",
+    placeholder: "Tags. Separate with commas."
     = f.text_field :name, placeholder: "Name"
     = f.text_field :title, placeholder: "Title"
     = f.text_field :company, placeholder: "Company"

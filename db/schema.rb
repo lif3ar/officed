@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524192541) do
+ActiveRecord::Schema.define(version: 20160524201729) do
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160524192541) do
     t.datetime "updated_at",     null: false
     t.integer  "company_id"
     t.integer  "company_tag_id"
+    t.integer  "contact_id"
   end
 
   create_table "company_tags", force: :cascade do |t|

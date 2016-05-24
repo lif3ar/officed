@@ -1,4 +1,7 @@
 = image_tag(@contact.contact_avatar(:small))
+%p
+  - @contact.company_tags.each do |tag|
+    .chip= tag.name
 = @contact.name
 = @contact.title
 = @contact.company
