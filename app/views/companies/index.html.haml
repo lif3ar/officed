@@ -13,5 +13,11 @@
           %td= company.website
           %td= company.phone
           %td= "#{company.city} #{company.street} #{company.state} #{company.country} #{company.zip}"
+  = link_to "Add a company", new_company_path, class: "btn z-depth-0"
+  = link_to "CSV", companies_path(format: "csv"), class: "btn z-depth-0"
+  = link_to "Excel", companies_path(format: "xls"), class: "btn z-depth-0"
 - else
   = link_to "Add a company", new_company_path, class: "btn z-depth-0"
+%p
+  Total No. of records :
+  = @companies.count
