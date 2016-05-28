@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'pages#home'
   resources :companies do
     resources :company_comments
   end
   resources :contacts
+  resources :tasks
+
+  get 'pages/test', to: 'pages#test'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

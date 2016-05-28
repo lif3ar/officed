@@ -1,0 +1,15 @@
+- unless current_user.tasks.blank?
+  %table.highlight.bordered
+    %thead
+      %tr
+        %th Name
+        %th Priority
+        %th Due date
+    %tbody
+      - current_user.tasks.each do |task|
+        %tr{"data-link": (url_for [task])}
+          %td= link_to task.name, task
+          %td= task.priority
+          %td= task.date
+- else
+  = link_to "Add task", new_task_path, class: "btn z-depth-0"

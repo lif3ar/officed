@@ -1,0 +1,16 @@
+.row
+  = simple_form_for(@task, html: {class: "form col s6", role: "form",
+  multitask: true}) do |f|
+    %h4 Update task
+    = f.text_field :all_company_tags, class: "input_field col s12",
+    placeholder: "Tags. Separate with commas."
+    = f.text_field :name, placeholder: "Name"
+    .input-field
+      = f.select :priority, options_for_select(["Low", "Average", "High"])
+      = f.label :priority
+    .row
+      = f.label :date, "Complete the task before"
+      = f.date_field :date, class: "datepicker", label: "Date"
+    = f.submit class: "btn z-depth-0"
+
+    = link_to "Back", :back, class: "btn z-depth-0 grey lighten-1"

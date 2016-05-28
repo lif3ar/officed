@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524201729) do
+ActiveRecord::Schema.define(version: 20160527083412) do
 
   create_table "companies", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160524201729) do
     t.integer  "company_id"
     t.integer  "company_tag_id"
     t.integer  "contact_id"
+    t.integer  "task_id"
   end
 
   create_table "company_tags", force: :cascade do |t|
@@ -80,6 +81,15 @@ ActiveRecord::Schema.define(version: 20160524201729) do
     t.string   "contact_avatar_content_type"
     t.integer  "contact_avatar_file_size"
     t.datetime "contact_avatar_updated_at"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.date     "date"
+    t.string   "priority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

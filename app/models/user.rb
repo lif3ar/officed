@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :companies, dependent: :destroy
   has_many :company_comments
   has_many :contacts, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 end
