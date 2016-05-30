@@ -1,7 +1,20 @@
-%h1 Feed
-%p
-  - @activities.each do |activity|
-    .activity
+-#%p
+-#  - @activities.each do |activity|
+-#    .activity
+-#      - if activity.trackable
+-#        = link_to activity.owner.email, activity.owner if activity.owner
+-#        = render_activity activity
+
+%ul.collection
+  %li.collection-header
+    %h4 Feeds
+    - @activities.each do |activity|
       - if activity.trackable
-        = link_to activity.owner.email, activity.owner if activity.owner
-        = render_activity activity
+        %li.collection-item.avatar
+          - if current_user.avatar?
+            = image_tag(current_user.avatar, class: "circle")
+          - else
+            = image_tag('no_avatar.png', class: "circle")
+          %span.title
+            = link_to activity.owner.email, activity.owner if activity.owner
+          %p= render_activity activity
