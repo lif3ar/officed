@@ -10,6 +10,7 @@ class CompanyCommentsController < ApplicationController
     @company_comment.user_id = current_user.id
     @company_comment.company_id = @company.id
     if @company_comment.save
+      @company_comment.create_activity :create, owner: current_user
       redirect_to company_path(@company)
     else
       render 'new'
@@ -33,6 +34,7 @@ class CompanyCommentsController < ApplicationController
 
   def destroy
     @company_comment.destroy
+    @company_comment.create_activity :destroy, owner: current_user
     redirect_to company_path(@company)
   end
 

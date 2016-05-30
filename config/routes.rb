@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   devise_for :users
+  resources :activities
   resources :users
   resources :companies do
     resources :company_comments

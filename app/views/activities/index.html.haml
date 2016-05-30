@@ -1,0 +1,7 @@
+%h1 Feed
+%p
+  - @activities.each do |activity|
+    .activity
+      - if activity.trackable
+        = link_to activity.owner.email, activity.owner if activity.owner
+        = render_activity activity

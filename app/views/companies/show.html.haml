@@ -18,6 +18,7 @@
 %h5 Comments
 - @company.company_comments.each do |comment|
   %p= comment.content
+  = link_to "Edit", edit_company_company_comment_path(@company, comment)
 = render 'company_comments/comment'
 
 = link_to "Edit", edit_company_path, class: "btn z-depth-0"

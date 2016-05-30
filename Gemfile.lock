@@ -108,6 +108,11 @@ GEM
     paperclip-storage-ftp (1.2.7)
       paperclip
     pg (0.18.4)
+    public_activity (1.5.0)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     puma (3.1.0)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -203,6 +208,7 @@ DEPENDENCIES
   paperclip (~> 4.3, >= 4.3.5)
   paperclip-storage-ftp
   pg
+  public_activity (~> 1.5)
   puma (= 3.1.0)
   rails (= 4.2.6)
   rails_12factor

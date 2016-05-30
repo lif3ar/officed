@@ -1,0 +1,4 @@
+= simple_form_for(@company.company_comment) do |f|
+  = f.text_area :content, class: "materialize-textarea",
+  placeholder: "Add your comments about the company."
+  = f.submit "Save changes", class: "btn z-depth-0"

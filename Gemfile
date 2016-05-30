@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'materialize-sass'
 gem 'paperclip', '~> 4.3', '>= 4.3.5'
 gem 'paperclip-storage-ftp'
+gem 'public_activity', '~> 1.5'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
