@@ -2,6 +2,33 @@
   color: #2B2E2E;
   text-align: left;
 }
+
+.row {
+  margin-bottom: 0px;
+}
+
+nav {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+nav li {
+  border-left: 1px solid #f1f1f1;
+}
+
 .brand-logo h4 {
   color: #2B2E2E;
+}
+
+.navbar-user-image {
+  transition: .1s ease-in-out;
+}
+
+.navbar-user-image:hover {
+  opacity: 0.75;
+}
+
+.modal-profile-image {
+  max-width: 20rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
 }

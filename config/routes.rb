@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'pages#home'
+  devise_for :users
+  resources :users
   resources :companies do
     resources :company_comments
   end

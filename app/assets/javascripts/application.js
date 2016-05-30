@@ -22,8 +22,8 @@ jQuery(function($) {
     });
 })
 
-$(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-});
-
+jQuery(function($) {
+    $("li[data-link]").click(function() {
+        window.location = this.dataset.link
+    });
+})

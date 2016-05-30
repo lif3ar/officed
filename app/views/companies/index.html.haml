@@ -21,3 +21,9 @@
 %p
   Total No. of records :
   = @companies.count
+%li
+  %a{class: "btn dropdown-button", href: "#!", data: {activates: "dropdown2"}}
+    Export
+  %ul#dropdown2.dropdown-content
+    %li= link_to "CSV", companies_path(format: "csv")
+    %li= link_to "XLS", companies_path(format: "xls")
