@@ -7,22 +7,22 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/nav_top'
     = render 'layouts/nav_left'
-    %p.notice= notice
-    %p.alert= alert
-    = yield
-    - if user_signed_in?
-      #modal1.modal
-        .modal-content
-          .row
-            .col.s4.modal-profile-image
-              - if current_user.avatar?
-                = image_tag(current_user.avatar(:medium), class: "modal-profile-image")
-              - else
-                = image_tag('no_avatar.png', class: "modal-profile-image")
-            .col.s8
-              %h5= current_user.email
-              %p= link_to "My profile", current_user
-              %p= link_to "Edit profile", edit_user_registration_path(current_user)
-              %p= link_to "Sign Out", destroy_user_session_path, method: :delete
+    #hero-1
+      = render 'layouts/nav_top'
+      = render 'layouts/messages'
+      = yield
+      - if user_signed_in?
+        #modal1.modal
+          .modal-content
+            .row
+              .col.s4.modal-profile-image
+                - if current_user.avatar?
+                  = image_tag(current_user.avatar(:medium), class: "modal-profile-image")
+                - else
+                  = image_tag('no_avatar.png', class: "modal-profile-image")
+              .col.s8
+                %h5= current_user.email
+                %p= link_to "My profile", current_user
+                %p= link_to "Edit profile", edit_user_registration_path(current_user)
+                %p= link_to "Sign Out", destroy_user_session_path, method: :delete

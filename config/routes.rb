@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
   devise_for :users
+  authenticated :user do
+    root 'activities#index', as: :authenticated_root
+  end
+  root 'pages#home'
   resources :activities
   resources :users
   resources :companies do

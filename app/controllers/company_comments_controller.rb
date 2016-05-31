@@ -33,8 +33,8 @@ class CompanyCommentsController < ApplicationController
   end
 
   def destroy
-    @company_comment.destroy
     @company_comment.create_activity :destroy, owner: current_user
+    @company_comment.destroy
     redirect_to company_path(@company)
   end
 

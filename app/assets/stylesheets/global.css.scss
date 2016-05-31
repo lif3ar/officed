@@ -8,15 +8,19 @@
 }
 
 nav {
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 nav li {
-  border-left: 1px solid #f1f1f1;
+  border-left: 1px solid #e0e0e0;
 }
 
-.brand-logo h4 {
-  color: #2B2E2E;
+.logo-text {
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  height: 2.75rem;
+  padding-top: 0.5rem;
 }
 
 .navbar-user-image {
@@ -27,8 +31,43 @@ nav li {
   opacity: 0.75;
 }
 
+.side-nav {
+  width: 13rem;
+}
+
+
+.side-nav li {
+  width: 13rem;
+}
+
+.side-nav a:hover {
+  padding-left: 25px;
+  border-left: 5px solid #039BE5;
+}
+
+.side-nav.fixed a {
+  color: #fff !important;
+}
+
 .modal-profile-image {
   max-width: 20rem;
   margin-right: 1rem;
   border-radius: 0.5rem;
+}
+
+.collection {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  border: 0rem;
+  border-right: 1px solid #e0e0e0;
+  border-radius: 0rem;
+  .collection-header {
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 991px) {
+  #hero-1 {
+    padding-left: 13rem;
+  }
 }

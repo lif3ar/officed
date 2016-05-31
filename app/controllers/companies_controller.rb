@@ -18,6 +18,7 @@ class CompaniesController < ApplicationController
   def create
     @company = current_user.companies.create(company_params)
     if @company.save
+      @company.create_activity :create, owner: current_user
       redirect_to @company
     else
       render 'new'
@@ -36,6 +37,7 @@ class CompaniesController < ApplicationController
   def update
     @company.update(company_params)
     if @company.save
+      @company.create_activity :update, owner: current_user
       redirect_to @company
     else
       flash[:alert] = "Company information has not been updated"
@@ -44,6 +46,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
+    @company.create_activity :destroy, owner: current_user
     @company.destroy
     redirect_to companies_path
   end

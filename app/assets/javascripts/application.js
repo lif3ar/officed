@@ -27,3 +27,4 @@ jQuery(function($) {
         window.location = this.dataset.link
     });
 })
+

@@ -1,9 +1,7 @@
-#side-nav.fixed
-  %ul
-    %li= link_to "User", current_user
-    %li= link_to "User", current_user
-  %ul.right.hide-on-med-and-down
-    %li= link_to "User", current_user
-    %li= link_to "User", current_user
-    %li= link_to "User", current_user
-  %a{ href: "#", data: { activates: "slide-out" }, class: "button-collapse"} Yiels
+%ul.side-nav.fixed.z-depth-1.blue-grey.darken-2
+  %li
+    %h5.logo-text FINDYMINDY
+  %li= link_to "Home", root_path
+  %li= link_to "Companies", companies_path
+  %li= link_to "Contacts", contacts_path
+  %li= link_to "Tasks", tasks_path
