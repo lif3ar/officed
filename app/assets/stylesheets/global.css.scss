@@ -7,6 +7,10 @@
   margin-bottom: 0px;
 }
 
+.blue-color {
+  background-color: #039BE5;
+}
+
 nav {
   border-bottom: 1px solid #e0e0e0;
 }
@@ -35,7 +39,6 @@ nav li {
   width: 13rem;
 }
 
-
 .side-nav li {
   width: 13rem;
 }
@@ -47,6 +50,10 @@ nav li {
 
 .side-nav.fixed a {
   color: #fff !important;
+}
+
+.padding-left {
+  padding-left: 1.3rem;
 }
 
 .modal-profile-image {

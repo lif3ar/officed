@@ -1,8 +1,17 @@
 - unless current_user.contacts.blank?
+  .row
+    %h5.padding-left.col.s6 All Contacts
+    .right-align.col.s6
+      %ul#dropdown2.dropdown-content
+        %li= link_to "CSV", contacts_path(format: "csv")
+        %li= link_to "Excel", contacts_path(format: "xls")
+      %a.btn.dropdown-button.z-depth-0.btn-flat{ href: "#!", data: { activates: "dropdown2"}}
+        Export
+      = link_to "Add Contact", new_contact_path, class: "btn z-depth-0 blue-color"
   %table.highlight.bordered
     %thead
       %tr
-        %th Name
+        %th.padding-left Name
         %th Company
         %th Email
         %th Phone
@@ -10,10 +19,13 @@
     %tbody
       - current_user.contacts.each do |contact|
         %tr{"data-link": (url_for [contact])}
-          %td= link_to contact.name, contact
+          %td.padding-left= link_to contact.name, contact
           %td= contact.company
           %td= contact.email
           %td= contact.mobile
           %td= "#{contact.city} #{contact.street} #{contact.state} #{contact.country} #{contact.zip}"
 - else
-  = link_to "Add Contact", new_contact_path, class: "btn z-depth-0"
+  = link_to "Add Contact", new_contact_path, class: "btn z-depth-0 blue-color"
+%p.padding-left
+  Total No. of contacts :
+  = @contacts.count

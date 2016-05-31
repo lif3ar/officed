@@ -8,14 +8,16 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">Name</Data></Cell>
-        <Cell><Data ss:Type="String">Website</Data></Cell>
+        <Cell><Data ss:Type="String">Company</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
         <Cell><Data ss:Type="String">Phone</Data></Cell>
       </Row>
-      <% @companies.each do |company| %>
+      <% @contacts.each do |contact| %>
         <Row>
-          <Cell><Data ss:Type="String"><%= company.name %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= company.website %></Data></Cell>
-          <Cell><Data ss:Type="String"><%= company.phone %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.company %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.email %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= contact.mobile %></Data></Cell>
         </Row>
       <% end %>
     </Table>

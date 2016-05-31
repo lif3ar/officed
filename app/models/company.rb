@@ -1,7 +1,6 @@
 class Company < ActiveRecord::Base
   include PublicActivity::Common
   # tracked owner: ->(controller, model) { controller && controller.current_user }
-
   include Global
 
   belongs_to :user
@@ -24,8 +23,6 @@ class Company < ActiveRecord::Base
   :ftp_ignore_failing_connections => true,
   :ftp_keep_empty_directories => true
   validates_attachment_content_type :company_logo, content_type: /\Aimage\/.*\Z/
-
-
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

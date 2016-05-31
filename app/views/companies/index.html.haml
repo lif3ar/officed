@@ -1,29 +1,29 @@
 - unless current_user.companies.blank?
+  .row
+    %h5.padding-left.col.s6 All Companies
+    .right-align.col.s6
+      %ul#dropdown2.dropdown-content
+        %li= link_to "CSV", companies_path(format: "csv")
+        %li= link_to "Excel", companies_path(format: "xls")
+      %a.btn.dropdown-button.z-depth-0.btn-flat{ href: "#!", data: { activates: "dropdown2"}}
+        Export
+      = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color"
   %table.highlight.bordered
     %thead
       %tr
-        %th Name
+        %th.padding-left Name
         %th Website
         %th Phone
         %th Location
     %tbody
       - current_user.companies.each do |company|
         %tr{"data-link": (url_for [company])}
-          %td= link_to company.name, company
+          %td.padding-left= link_to company.name, company
           %td= company.website
           %td= company.phone
           %td= "#{company.city} #{company.street} #{company.state} #{company.country} #{company.zip}"
-  = link_to "Add a company", new_company_path, class: "btn z-depth-0"
-  = link_to "CSV", companies_path(format: "csv"), class: "btn z-depth-0"
-  = link_to "Excel", companies_path(format: "xls"), class: "btn z-depth-0"
 - else
-  = link_to "Add a company", new_company_path, class: "btn z-depth-0"
-%p
+  = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color"
+%p.padding-left
   Total No. of records :
   = @companies.count
-%li
-  %a{class: "btn dropdown-button", href: "#!", data: {activates: "dropdown2"}}
-    Export
-  %ul#dropdown2.dropdown-content
-    %li= link_to "CSV", companies_path(format: "csv")
-    %li= link_to "XLS", companies_path(format: "xls")

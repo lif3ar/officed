@@ -3,7 +3,12 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts.order(:name)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   def new

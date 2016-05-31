@@ -20,4 +20,13 @@ class Contact < ActiveRecord::Base
                     :ftp_ignore_failing_connections => true,
                     :ftp_keep_empty_directories => true
   validates_attachment_content_type :contact_avatar, content_type: /\Aimage\/.*\Z/
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |contact|
+        csv << contact.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
