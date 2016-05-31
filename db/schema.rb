@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531071232) do
+ActiveRecord::Schema.define(version: 20160531073419) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -63,11 +63,12 @@ ActiveRecord::Schema.define(version: 20160531071232) do
   add_index "company_comments", ["user_id"], name: "index_company_comments_on_user_id"
 
   create_table "company_taggings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "contact_id"
     t.integer  "task_id"
     t.integer  "company_id"
+    t.integer  "company_tag_id"
   end
 
   create_table "company_tags", force: :cascade do |t|
