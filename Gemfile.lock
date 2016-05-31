@@ -209,7 +209,7 @@ DEPENDENCIES
   paperclip-storage-ftp
   pg
   public_activity (~> 1.5)
-  puma (= 3.1.0)
+  puma
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)
