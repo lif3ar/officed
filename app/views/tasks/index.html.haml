@@ -24,4 +24,9 @@
     Total No. of tasks :
     = @tasks.count
 - else
-  = link_to "Add Task", new_task_path, class: "btn z-depth-0 blue-color padding-left"
+  .center.no-data
+    .row
+      .col.s6.offset-s3
+        = image_tag('pencil_icon.png', class: "no-data-image")
+        %h5 Plan your moves, achieve great results!
+        = link_to "Add Task", new_task_path, class: "btn z-depth-0 blue-color"

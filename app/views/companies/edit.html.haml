@@ -1,28 +1,37 @@
-.row
-  = simple_form_for(@company, html: {class: "form col s6", role: "form", multipart: true}) do |f|
-    %h5 Update Company
-    = f.text_field :name, class: "input-field col s12", placeholder: "Company name"
-    <br/>
-    = f.text_field :website, class: "input-field col s12", placeholder: "Website"
-    <br/>
-    = f.text_field :description, class: "materialize-textarea", placeholder: "Description"
-    <br/>
-    = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
-    <br/>
-    = f.text_field :all_company_tags, class: "input_field col s12",
-    placeholder: "Tags. Separate with commas."
-    <br/>
-    = f.input_field :company_logo, class: "btn file-field input-field"
-    %h6 Address
-    = f.text_field :street, class: "input-field col s12", placeholder: "Street"
-    <br/>
-    = f.text_field :city, class: "input-field col s12", placeholder: "City"
-    <br/>
-    = f.text_field :state, class: "input-field col s12", placeholder: "State"
-    <br/>
-    = f.text_field :country, class: "input-field col s12", placeholder: "County"
-    <br/>
-    = f.text_field :zip, class: "input-field col s12", placeholder: "Zip Code"
-    <br/>
+= simple_form_for(@company, html: {class: "form padding-left", role: "form", multipart: true}) do |f|
+  .row
+    .col.s6
+      %h5 Update Company
+      .col.s6
+        = f.text_field :name, class: "input-field col s12", placeholder: "Company name", autofocus: true
+        = f.text_field :website, class: "input-field col s12", placeholder: "Website"
+        = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
+        = f.text_area :description, class: "materialize-textarea", placeholder: "Description"
+      .col.s6
+        - if @company.company_logo?
+          = image_tag(@company.company_logo(:small))
+        -else
+          = link_to image_tag('unknown_company.jpg', size: '65')
+        %br
+        = f.label "Upload company logo"
+        .file-field.input-field
+          .btn
+            %span Logo
+            = f.file_field :company_logo
+          .file-path-wrapper
+            %input.file-path.validate{type: "text"}
+        = f.label "Company related tags"
+        = f.text_field :all_company_tags, class: "input_field col s12",
+        placeholder: "Business, deal, manufactory, etc"
+  .row
+    .col.s6
+      %h6 Address
+      .col.s6
+        = f.text_field :street, class: "input-field col s12", placeholder: "Street"
+        = f.text_field :city, class: "input-field col s12", placeholder: "City"
+        = f.text_field :state, class: "input-field col s12", placeholder: "State"
+        = f.text_field :country, class: "input-field col s12", placeholder: "County"
+        = f.text_field :zip, class: "input-field col s12", placeholder: "Zip Code"
+  .padding-left.form-submit-button
     = f.submit "Save", class: "btn z-depth-0"
     = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"

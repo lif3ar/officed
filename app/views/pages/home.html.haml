@@ -1,0 +1,6 @@
+.center.no-data
+  .row
+    .col.s6.offset-s3
+      = image_tag('job.png', class: "no-data-image")
+      %h5 To use OFFICED you can either login using "expample@example.com" as login and "password" as password, or register by yourself.
+      = link_to "Add Task", new_task_path, class: "btn z-depth-0 blue-color"

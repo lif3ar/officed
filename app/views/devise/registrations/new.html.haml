@@ -1,10 +1,16 @@
-%h2 Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-    = f.input :password_confirmation, required: true
-  .form-actions
-    = f.button :submit, "Sign up"
-= render "devise/shared/links"
+.center.no-data
+  .row
+    .col.s6.offset-s3
+      = image_tag('job.png', class: "no-data-image")
+      %h5 To use OFFICED you can either login using "expample@example.com" as login and "password" as password, or register by yourself.
+      .col.s6.offset-s3
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.error_notification
+          .form-inputs
+            = f.text_field :email, required: true, autofocus: true, placeholder: "Email"
+            = f.text_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "Password"
+            = f.text_field :password_confirmation, required: true, placeholder: "Password confirmation"
+          .form-actions
+            = f.button :submit, "Sign up", class: "btn z-depth-0 blue-color"
+        .devise-flat-button
+          = render "devise/shared/links"

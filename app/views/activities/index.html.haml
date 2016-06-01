@@ -1,13 +1,23 @@
-%ul.collection
-  %li.collection-header
-    %h4 Feeds
-    - @activities.each do |activity|
-      - if activity.trackable
-        %li.collection-item.avatar
-          - if current_user.avatar?
-            = image_tag(current_user.avatar, class: "circle")
-          - else
-            = image_tag('no_avatar.png', class: "circle")
-          %span.title
-            = link_to activity.owner.email, activity.owner if activity.owner
-          %p= render_activity activity
+- unless @activities.any?
+  .center.no-data
+    .row
+      .col.s6.offset-s3
+        = image_tag('start.png', class: "no-data-image")
+        %h5 Start improving your performance by adding some
+        %h5 #{link_to "companies", new_company_path}, #{link_to "contacts", new_contact_path} or #{link_to "tasks", new_task_path}!
+- else
+  .row
+    .col.s12.nopadding
+      %ul.collection
+        %li.collection-header
+          %h4 Feed
+          - @activities.each do |activity|
+            - if activity.trackable
+              %li.collection-item.avatar
+                - if current_user.avatar?
+                  = image_tag(current_user.avatar, class: "circle")
+                - else
+                  = image_tag('no_avatar.png', class: "circle")
+                %span.title
+                  = link_to activity.owner.email, activity.owner if activity.owner
+                %p= render_activity activity

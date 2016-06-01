@@ -26,4 +26,9 @@
     Total No. of records :
     = @companies.count
 - else
-  = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color padding-left"
+  .center.no-data
+    .row
+      .col.s6.offset-s3
+        = image_tag('company_pic_01.png', class: "no-data-image")
+        %h5 Imply your business opportunities by adding companies contacts!
+        = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color"

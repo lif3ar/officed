@@ -1,21 +1,54 @@
-.row
-  = simple_form_for(@contact, html: {class: "form col s6", role: "form",
+= simple_form_for(@contact, html: {class: "form col s6", role: "form",
   multipart: true}) do |f|
-    = f.file_field :contact_avatar
-    = f.text_field :all_company_tags, class: "input_field col s12",
-    placeholder: "Tags. Separate with commas."
-    = f.text_field :name, placeholder: "Name"
-    = f.text_field :title, placeholder: "Title"
-    = f.text_field :company, placeholder: "Company"
-    = f.text_area :description, placeholder: "Description",
-    class: "materialize-textarea"
-    = f.text_field :email, placeholder: "Email"
-    = f.text_field :work, placeholder: "Work"
-    = f.text_field :mobile, placeholder: "Mobile"
-    = f.text_field :home, placeholder: "Home"
-    = f.text_field :street, placeholder: "Street"
-    = f.text_field :city, placeholder: "City"
-    = f.text_field :state, placeholder: "State"
-    = f.text_field :country, placeholder: "Country"
-    = f.text_field :zip, placeholder: "Zip code"
-    = f.submit class: "btn z-depth-0"
+  .row
+    .col.s6
+      %h5 Add Contact
+      .col.s6
+        = f.text_field :name, placeholder: "Name"
+        = f.text_field :title, placeholder: "Title"
+        = f.text_field :company, placeholder: "Company"
+        = f.text_area :description, placeholder: "Description",
+        class: "materialize-textarea"
+      .col.s6
+        - if @contact.contact_avatar?
+          = image_tag(@contact.contact_avatar(:small))
+        -else
+          = link_to image_tag('no_avatar.png', size: '65')
+        %br
+        = f.label "Upload contacts photo"
+        .file-field.input-field
+          .btn
+            %span Photo
+            = f.file_field :contact_avatar
+          .file-path-wrapper
+            %input.file-path.validate{type: "text"}
+        = f.label "Contact related tags"
+        = f.text_field :all_company_tags, class: "input_field col s12",
+        placeholder: "Business, deal, manufactory, etc"
+  .border-bottom
+  .row
+    .col.s6
+      .col.s6
+        %ul.tabs
+          %li.tab.col.s3
+            %a{href: "#info-edit"}Contact Info
+          %li.tab.col.s3
+            %a{href: "#address-edit"}Address
+      #info-edit.col.s12
+        .col.s6
+          = f.text_field :email, placeholder: "Email"
+          = f.text_field :work, placeholder: "Work"
+        .col.s6
+          = f.text_field :mobile, placeholder: "Mobile"
+          = f.text_field :home, placeholder: "Home"
+      #address-edit.col.s12
+        .col.s6
+          = f.text_field :street, placeholder: "Street"
+          = f.text_field :city, placeholder: "City"
+          = f.text_field :state, placeholder: "State"
+        .col.s6
+          = f.text_field :country, placeholder: "Country"
+          = f.text_field :zip, placeholder: "Zip code"
+  .padding-left.form-submit-button
+    = f.submit "Save", class: "btn z-depth-0"
+    = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"

@@ -44,7 +44,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @company.create_activity :destroy, owner: current_user
+    @contact.create_activity :destroy, owner: current_user
     @contact.destroy
     redirect_to contacts_path
   end

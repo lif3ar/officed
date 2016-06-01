@@ -28,4 +28,9 @@
     Total No. of contacts :
     = @contacts.count
 - else
-  = link_to "Add Contact", new_contact_path, class: "btn z-depth-0 blue-color padding-left"
+  .center.no-data
+    .row
+      .col.s6.offset-s3
+        = image_tag('suit.png', class: "no-data-image")
+        %h5 Add some contacts to improve your performance!
+        = link_to "Add Contact", new_contact_path, class: "btn z-depth-0 blue-color"

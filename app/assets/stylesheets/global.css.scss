@@ -7,6 +7,15 @@
   margin-bottom: 0px;
 }
 
+.row.col {
+  padding-bottom: 0px;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .blue-color {
   background-color: #039BE5;
 }
@@ -66,7 +75,6 @@ nav li {
   margin-top: 0rem;
   margin-bottom: 0rem;
   border: 0rem;
-  border-right: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   border-radius: 0rem;
   .collection-header {
@@ -74,8 +82,36 @@ nav li {
   }
 }
 
+.feed-right-block {
+  background: #fbfbfb;
+}
+
 @media (min-width: 991px) {
   #hero-1 {
     padding-left: 13rem;
   }
+}
+
+.no-data {
+  padding-top: 5rem;
+  float: center;
+  text-align: center;
+}
+
+.no-data-image {
+  max-height: 300px;
+}
+
+.devise-flat-button {
+  padding-top: 10px;
+}
+
+.form-submit-button {
+  padding-top: 1.5rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
 }

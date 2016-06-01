@@ -1,16 +1,22 @@
-.row
-  = simple_form_for(@task, html: {class: "form col s6", role: "form",
+= simple_form_for(@task, html: {class: "form col s6 padding-left", role: "form",
   multitask: true}) do |f|
-    %h4 Update task
-    = f.text_field :all_company_tags, class: "input_field col s12",
-    placeholder: "Tags. Separate with commas."
-    = f.text_field :name, placeholder: "Name"
-    .input-field
-      = f.select :priority, options_for_select(["Low", "Average", "High"])
+  .row
+    .col.s6
+      %h5 Update Task
+      = f.text_field :name, placeholder: "Name"
+      = f.label "Contact related tags"
+      = f.text_field :all_company_tags, class: "input_field col s12",
+      placeholder: "Business, deal, manufactory, etc"
+      %br
+  .row
+    .col.s3
       = f.label :priority
-    .row
+      .input-field
+        = f.select :priority, options_for_select(["Low", "Average", "High"])
+    .col.s3
       = f.label :date, "Complete the task before"
-      = f.date_field :date, class: "datepicker", label: "Date"
-    = f.submit class: "btn z-depth-0"
-
-    = link_to "Back", :back, class: "btn z-depth-0 grey lighten-1"
+      .input-field
+        = f.date_field :date, class: "datepicker", label: "Date"
+  .padding-left.form-submit-button
+    = f.submit "Save", class: "btn z-depth-0"
+    = link_to "Cancel", :back, class: "btn z-depth-0 grey darken-3"
