@@ -21,27 +21,25 @@
     = link_to "Edit company", edit_company_path, class: "btn z-depth-0 blue-color"
     = link_to "Delete company", company_path, method: :delete,
     class: "btn z-depth-0 grey darken-3"
+.border-bottom
 .row
   .col.s6
-    .col.s6
-      %ul.tabs
-        %li.tab.col.s3
-          %a{href: "#address-show"}Address
-        %li.tab.col.s3
-          %a{href: "#comments"}Comments
-    #address-show.col.s12
+    .col.s12
       .col.s6
+        %h6.underline-blue Address
         %p= @company.street
         %p= @company.city
         %p= @company.state
         %p= @company.country
         %p= @company.zip
-    #comments.col.s12
-      - if @company.company_comments.any?
-        %h5 Comments
-        - @company.company_comments.each do |comment|
-          %p #{comment.content}
-      - else
-        %p There is no comments yet.
-      .nopadding
-        = render 'company_comments/comment'
+.border-bottom
+.row.padding-left
+  .col.s12
+    - if @company.company_comments.any?
+      %h6.underline-blue Comments
+      - @company.company_comments.each do |comment|
+        %p #{comment.content}
+    - else
+      %p There is no comments yet.
+    .nopadding
+      = render 'company_comments/comment'
