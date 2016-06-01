@@ -1,15 +1,27 @@
 - unless current_user.tasks.blank?
+  .row
+    %h5.col.s6 All Tasks
+    .right-align.col.s6
+      %ul#dropdown2.dropdown-content
+        %li= link_to "CSV", tasks_path(format: "csv")
+        %li= link_to "Excel", tasks_path(format: "xls")
+      %a.btn.dropdown-button.z-depth-0.btn-flat{href: "#", data: {activates: "dropdown2"}}
+        Export
+      = link_to "Add Task", new_task_path, class: "btn z-depth-0 blue-color"
   %table.highlight.bordered
     %thead
       %tr
-        %th Name
+        %th.padding-left Name
         %th Priority
-        %th Due date
+        %th Date
     %tbody
       - current_user.tasks.each do |task|
         %tr{"data-link": (url_for [task])}
-          %td= link_to task.name, task
+          %td.padding-left= link_to task.name, task
           %td= task.priority
           %td= task.date
+  %p.padding-left
+    Total No. of tasks :
+    = @tasks.count
 - else
-  = link_to "Add task", new_task_path, class: "btn z-depth-0"
+  = link_to "Add Task", new_task_path, class: "btn z-depth-0 blue-color padding-left"

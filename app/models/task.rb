@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  include PublicActivity::Common
   include Global
 
   belongs_to :user

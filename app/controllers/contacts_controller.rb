@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.create(contact_params)
     if @contact.save
+      @contact.create_activity :create, owner: current_user
       redirect_to contact_path(@contact)
     else
       render 'new'
@@ -33,6 +34,7 @@ class ContactsController < ApplicationController
   def update
     @contact.update(contact_params)
     if @contact.save
+      @contact.create_activity :update, owner: current_user
       flash[:success] = "Information has been updated"
       redirect_to @contact
     else
@@ -42,6 +44,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    @company.create_activity :destroy, owner: current_user
     @contact.destroy
     redirect_to contacts_path
   end

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Priority</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
+      </Row>
+      <% @tasks.each do |task| %>
+        <Row>
+          <Cell><Data ss:Type="String"><%= task.name %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= task.priority %></Data></Cell>
+          <Cell><Data ss:Type="String"><%= task.date %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

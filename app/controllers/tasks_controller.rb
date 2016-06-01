@@ -3,7 +3,12 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.order(:name)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @tasks.to_csv }
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   def new
@@ -13,6 +18,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.create(task_params)
     if @task.save
+      @task.create_activity :create, owner: current_user
       flash[:success] = "Task has been added."
       redirect_to @task
     else
@@ -30,6 +36,7 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     if @task.save
+      @task.create_activity :update, owner: current_user
       flash[:success] = "Task has been updated."
       redirect_to @task
     else
@@ -39,6 +46,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task.create_activity :destroy, owner: current_user
     @task.destroy
     redirect_to @tasks
   end

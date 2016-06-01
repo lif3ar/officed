@@ -1,11 +1,11 @@
 - unless current_user.companies.blank?
   .row
-    %h5.padding-left.col.s6 All Companies
+    %h5.col.s6 All Companies
     .right-align.col.s6
       %ul#dropdown2.dropdown-content
         %li= link_to "CSV", companies_path(format: "csv")
         %li= link_to "Excel", companies_path(format: "xls")
-      %a.btn.dropdown-button.z-depth-0.btn-flat{ href: "#!", data: { activates: "dropdown2"}}
+      %a.btn.dropdown-button.z-depth-0.btn-flat{ href: "#", data: { activates: "dropdown2"}}
         Export
       = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color"
   %table.highlight.bordered
@@ -22,8 +22,8 @@
           %td= company.website
           %td= company.phone
           %td= "#{company.city} #{company.street} #{company.state} #{company.country} #{company.zip}"
+  %p.padding-left
+    Total No. of records :
+    = @companies.count
 - else
-  = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color"
-%p.padding-left
-  Total No. of records :
-  = @companies.count
+  = link_to "Add Company", new_company_path, class: "btn z-depth-0 blue-color padding-left"

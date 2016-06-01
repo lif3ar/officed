@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+  include PublicActivity::Common
   include Global
 
   belongs_to :user
