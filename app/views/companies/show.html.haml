@@ -1,26 +1,47 @@
-- if @company.company_logo?
-  = image_tag(@company.company_logo(:small))
--else
-  = link_to image_tag('unknown_company.jpg', size: '65'), edit_company_path
-%h5= @company.name
-%p= @company.website
-%p= @company.description
-%p= @company.phone
-%p
-  - @company.company_tags.each do |tag|
-    .chip= tag.name
-%p= @company.street
-%p= @company.city
-%p= @company.state
-%p= @company.country
-%p= @company.zip
-
-%h5 Comments
-- @company.company_comments.each do |comment|
-  %p= comment.content
-  = link_to "Edit", edit_company_company_comment_path(@company, comment)
-= render 'company_comments/comment'
-
-= link_to "Edit", edit_company_path, class: "btn z-depth-0"
-= link_to "Delete", company_path, method: :delete,
-class: "btn z-depth-0 grey darken-3"
+.row
+  .col.s1.padding-left
+    - if @company.company_logo?
+      .padding-left
+        = image_tag(@company.company_logo(:small))
+    -else
+      .padding-left
+        = link_to image_tag('unknown_company.jpg', size: '65'), edit_company_path
+  .col.s7
+    %h5= @company.name
+    %p= @company.description
+    .valign-wrapper
+      %i.xsmall.material-icons.valign language
+      .valign.info-padding-right= @company.website
+      %i.xsmall.material-icons.valign phone
+      .valign= @company.phone
+    %p
+      - @company.company_tags.each do |tag|
+        .chip= tag.name
+  .right-align.col.s4
+    = link_to "Edit company", edit_company_path, class: "btn z-depth-0 blue-color"
+    = link_to "Delete company", company_path, method: :delete,
+    class: "btn z-depth-0 grey darken-3"
+.row
+  .col.s6
+    .col.s6
+      %ul.tabs
+        %li.tab.col.s3
+          %a{href: "#address-show"}Address
+        %li.tab.col.s3
+          %a{href: "#comments"}Comments
+    #address-show.col.s12
+      .col.s6
+        %p= @company.street
+        %p= @company.city
+        %p= @company.state
+        %p= @company.country
+        %p= @company.zip
+    #comments.col.s12
+      - if @company.company_comments.any?
+        %h5 Comments
+        - @company.company_comments.each do |comment|
+          %p #{comment.content}
+      - else
+        %p There is no comments yet.
+      .nopadding
+        = render 'company_comments/comment'
