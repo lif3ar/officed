@@ -7,7 +7,11 @@
       %li= link_to "Contacts", contacts_path
       %li= link_to "Tasks", tasks_path
     - else
-      %li= link_to "Home", "#"
-      %li= link_to "Companies", "#"
-      %li= link_to "Contacts", "#"
-      %li= link_to "Tasks", "#"
+      %li
+        %a.tooltipped(data-position="right" data-delay="50" data-tooltip="Please, log in to use the service") Home
+      %li
+        %a.tooltipped(data-position="right" data-delay="50" data-tooltip="Please, log in to use the service") Companies
+      %li
+        %a.tooltipped(data-position="right" data-delay="50" data-tooltip="Please, log in to use the service") Contacts
+      %li
+        %a.tooltipped(data-position="right" data-delay="50" data-tooltip="Please, log in to use the service") Tasks
