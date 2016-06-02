@@ -19,5 +19,5 @@
                 - else
                   = image_tag('no_avatar.png', class: "circle")
                 %span.title
-                  = link_to activity.owner.email, activity.owner if activity.owner
+                  = link_to activity.owner.email, edit_user_registration_path
                 %p= render_activity activity
