@@ -1,21 +1,39 @@
-= image_tag(@contact.contact_avatar(:small))
-%p
-  - @contact.company_tags.each do |tag|
-    .chip= tag.name
-= @contact.name
-= @contact.title
-= @contact.company
-= @contact.description
-= @contact.email
-= @contact.work
-= @contact.mobile
-= @contact.home
-= @contact.street
-= @contact.city
-= @contact.state
-= @contact.country
-= @contact.zip
-
-= link_to "Edit", edit_contact_path, class: "btn z-depth-0"
-= link_to "Delete", contact_path, method: :delete,
-class: "btn z-depth-0 grey darken-3"
+.row
+  .col.s1.padding-left
+    - if @contact.contact_avatar?
+      .padding-left
+        = image_tag(@contact.contact_avatar(:small))
+    -else
+      .padding-left
+        = link_to image_tag('no_avatar.png', size: '105'), edit_contact_path
+  .col.s7
+    %h5= @contact.name
+    %p #{@contact.title} at #{@contact.company}
+    %p= @contact.description
+    .valign-wrapper
+      %i.xsmall.material-icons.valign email
+      .valign.info-padding-right= @contact.email
+      %i.xsmall.material-icons.valign speaker_phone
+      .valign.info-padding-right= @contact.mobile
+      %i.xsmall.material-icons.valign phone
+      .valign.info-padding-right= @contact.work
+      %i.xsmall.material-icons.valign call_end
+      .valign.info-padding-right= @contact.home
+    %p
+      - @contact.company_tags.each do |tag|
+        .chip= tag.name
+  .right-align.col.s4
+    = link_to "Edit contact", edit_contact_path, class: "btn z-depth-0 blue-color"
+    = link_to "Delete contact", contact_path, method: :delete,
+    class: "btn z-depth-0 grey darken-3"
+.border-bottom
+.row
+  .col.s6
+    .col.s12
+      .col.s6
+        %h6.underline-blue Address
+        %p= @contact.street
+        %p= @contact.city
+        %p= @contact.state
+        %p= @contact.country
+        %p= @contact.zip

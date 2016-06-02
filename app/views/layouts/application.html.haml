@@ -24,6 +24,5 @@
                   = image_tag('no_avatar.png', class: "modal-profile-image")
               .col.s8
                 %h5= current_user.email
-                %p= link_to "My profile", current_user
                 %p= link_to "Edit profile", edit_user_registration_path(current_user)
                 %p= link_to "Sign Out", destroy_user_session_path, method: :delete

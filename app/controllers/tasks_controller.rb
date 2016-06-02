@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :require_same_user, except: [:index, :new, :create]
 
   def index
     @tasks = current_user.tasks.order(:name)
@@ -59,6 +61,12 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :date, :priority, :all_company_tags)
+  end
+
+  def require_same_user
+    if @task.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
 end

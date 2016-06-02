@@ -5,7 +5,7 @@
         = image_tag(@company.company_logo(:small))
     -else
       .padding-left
-        = link_to image_tag('unknown_company.jpg', size: '65'), edit_company_path
+        = link_to image_tag('vader.png', size: '105'), edit_company_path
   .col.s7
     %h5= @company.name
     %p= @company.description
@@ -13,7 +13,7 @@
       %i.xsmall.material-icons.valign language
       .valign.info-padding-right= @company.website
       %i.xsmall.material-icons.valign phone
-      .valign= @company.phone
+      .valign.info-padding-right= @company.phone
     %p
       - @company.company_tags.each do |tag|
         .chip= tag.name
@@ -36,7 +36,7 @@
 .row.padding-left
   .col.s12
     - if @company.company_comments.any?
-      %h6.underline-blue Comments
+      %h6.underline-blue Notes
       - @company.company_comments.each do |comment|
         %p #{comment.content}
     - else

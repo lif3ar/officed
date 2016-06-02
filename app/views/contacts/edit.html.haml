@@ -14,7 +14,7 @@
           - if @contact.contact_avatar?
             = image_tag(@contact.contact_avatar(:small))
           -else
-            = link_to image_tag('no_avatar.png', size: '65')
+            = link_to image_tag('no_avatar.png', size: '105')
           %br
           = f.label "Upload contacts photo"
           .file-field.input-field

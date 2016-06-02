@@ -20,14 +20,6 @@
   background-color: #039BE5;
 }
 
-nav {
-  border-bottom: 1px solid #e0e0e0;
-}
-
-nav li {
-  border-left: 1px solid #e0e0e0;
-}
-
 .logo-text {
   color: #fff;
   text-align: center;
@@ -124,4 +116,34 @@ nav li {
   border-bottom: 2px solid #039BE5;
   padding-bottom: 10px;
   max-width: 5rem;
+}
+
+.green-button {
+  background-color: #6cf75c !important;
+  transition: .15s ease-out;
+}
+
+.green-button:hover {
+  background-color: #54c149 !important;
+  transition: .15s ease-in;
+}
+
+.blue-button {
+  background-color: #039be5 !important;
+  transition: .15s ease-out;
+}
+
+.blue-button:hover {
+  background-color: #037dc3 !important;
+  transition: .15s ease-in;
+}
+
+.red-button {
+  background-color: #ed1500 !important;
+  transition: .15s ease-out;
+}
+
+.red-button:hover {
+  background-color: #d01500 !important;
+  transition: .15s ease-in;
 }

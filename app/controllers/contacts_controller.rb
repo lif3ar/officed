@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
 
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :require_same_user, except: [:index, :new, :create]
 
   def index
     @contacts = current_user.contacts.order(:name)
@@ -60,6 +62,12 @@ class ContactsController < ApplicationController
                                     :email, :work, :mobile, :home, :street,
                                     :city, :state, :country, :zip,
                                     :contact_avatar, :all_company_tags)
+  end
+
+  def require_same_user
+    if @contact.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
 end

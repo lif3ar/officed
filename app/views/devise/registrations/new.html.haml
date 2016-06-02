@@ -2,7 +2,7 @@
   .row
     .col.s6.offset-s3
       = image_tag('job.png', class: "no-data-image")
-      %h5 To use OFFICED you can either login using "expample@example.com" as login and "password" as password, or register by yourself.
+      %h5 Sign up
       .col.s6.offset-s3
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = f.error_notification

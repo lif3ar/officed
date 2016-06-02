@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   require "paperclip/storage/ftp"
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :require_same_user, except: [:index, :new, :create]
 
   def index
     @companies = current_user.companies.order(:name)
@@ -61,6 +63,12 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:name, :website, :phone, :description,
                                     :street, :city, :state, :country, :zip,
                                     :all_company_tags, :company_logo)
+  end
+
+  def require_same_user
+    if @company.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
 end

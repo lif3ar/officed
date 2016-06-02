@@ -1,8 +1,14 @@
-%h2 Forgot your password?
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-  .form-actions
-    = f.button :submit, "Send me reset password instructions"
-= render "devise/shared/links"
+.center.no-data
+  .row
+    .col.s6.offset-s3
+      = image_tag('job.png', class: "no-data-image")
+      %h5 Forgot your password?
+      .col.s6.offset-s3
+        = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = f.error_notification
+          .form-inputs.devise-flat-button
+            = f.text_field :email, required: true, autofocus: true, placeholder: "Registration email"
+          .form-actions
+            = f.button :submit, "Send me reset password instructions", class: "btn z-depth-0 blue-color"
+        .devise-flat-button
+          = render "devise/shared/links"
