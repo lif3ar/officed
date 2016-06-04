@@ -9,10 +9,7 @@
           = f.text_field :phone, class: "input-field col s12", placeholder: "Phone"
           = f.text_area :description, class: "materialize-textarea", placeholder: "Description"
         .col.s6
-          - if @company.company_logo?
-            = image_tag(@company.company_logo(:small))
-          -else
-            = link_to image_tag('unknown_company.jpg', size: '65')
+          = image_tag('vader.png', size: '65')
           %br
           = f.label "Upload company logo"
           .file-field.input-field
