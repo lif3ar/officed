@@ -9,6 +9,7 @@ class Company < ActiveRecord::Base
   has_many :company_comments, dependent: :destroy
 
   has_attached_file :company_logo, styles: { small: "80x80>" },
+  default_url: "/company_logos/:style/missing.png",
   :storage => :ftp,
   :path => "public_html/mighty12.com/paperclip/:attachment/:id/:style/:filename",
   :url => "http://mighty12.com/paperclip/:attachment/:id/:style/:filename",
@@ -16,7 +17,8 @@ class Company < ActiveRecord::Base
       {
           :host     => "ftp.mighty12.com",
           :user     => "milieu",
-          :password => "ziraeprubu"
+          :password => "ziraeprubu",
+          :passive  => true
       },
   ],
   :ftp_connect_timeout => 5,
